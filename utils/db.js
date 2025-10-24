@@ -6,7 +6,7 @@ async function connectDB() {
         await connect(DB_URL)
         console.log(`\n ==========  database connected success ===========`)
     } catch (error) {
-        
+        console.log(`database failed : ${error.message}`)
     }
 }
 
