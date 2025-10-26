@@ -2,9 +2,15 @@ import express from 'express'
 import { PORT } from './config/index.js'
 import connectDB from './utils/db.js'
 import handleError from './middlewares/handleError.js'
+import productRouter from './routes/product/productRoutes.js'
+import categoriesRouter from './routes/categoris/categoriesRouter.js'
 const app = express()
 
 
+// -------- middleware --------
+app.use(express.json())
+app.use('/api/product',productRouter)
+app.use('/api/categories',categoriesRouter)
 
 
 app.get("/", (req, res) => {

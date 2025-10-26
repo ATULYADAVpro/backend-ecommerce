@@ -1,3 +1,4 @@
+import { DEBUG } from "../config/index.js";
 import ErrorHandler from "../utils/ErrorHandler.js";
 
 async function handleError(err, req, res, next) {
@@ -5,7 +6,7 @@ async function handleError(err, req, res, next) {
     let data = {
         message: 'Internal Server Error',
         success: false,
-        ...(DEBUG_MODE === "true" && { originalError: err.message }),
+        ...(DEBUG === "true" && { originalError: err.message }),
     }
 
     if (err instanceof ErrorHandler) {

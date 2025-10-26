@@ -7,8 +7,14 @@ class ErrorHandler extends Error {
     }
 
     static testError(msg = "demo error") {
-        return ErrorHandler(400, msg)
+        return new ErrorHandler(400, msg)
     }
+
+    static requiredAllFiled(status = 400, msg = 'all filed are required!') {
+        return new ErrorHandler(status, msg)
+    }
+
+    
 }
 
 export default ErrorHandler
